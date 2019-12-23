@@ -9,19 +9,18 @@
 
 describe('Test Suite: new window', function() {
 
-    it('Child window test suite', function() {
-        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
-
-        // <a id="opentab" class="btn-style class1 class2" href="http://www.qaclickacademy.com/" target="_blank">Open Tab</a>
-        // Jqery prop() method to get attribute value
-        // This is how you can open a child window:
-        // technically there is no difference if it opens in a new or the same window
-        cy.get('#opentab').then(function(elem) {
-            var hrefAttributeUrl = elem.prop('href')
-            cy.log(hrefAttributeUrl)
-
-            cy.visit(hrefAttributeUrl)
-
+    before(function(){  //runs once before all tests
+        cy.fixture('example').then(function(data) {
+            // scope of data is now entire class
+            this.data = data
         })
+    })
+
+    it('Child window test suite', function() {
+        cy.visit('https://rahulshettyacademy.com/angularpractice/')
+
+        cy.get('input[name="name"]:nth-child(2)').type(this.data.name)
+        cy.get('select').select(this.data.gender)
+
     })
 })
