@@ -22,5 +22,23 @@ describe('Test Suite: new window', function() {
         cy.get('input[name="name"]:nth-child(2)').type(this.data.name)
         cy.get('select').select(this.data.gender)
 
+        // 'Two-way Data Binding example:' field has 'Bob' value
+        cy.get(':nth-child(4) > .ng-untouched').should('have.value', this.data.name)
+
+        // <input class="form-control ng-dirty ng-valid ng-touched" minlength="2" name="name" required="" type="text">
+        // check that minlength="2" which means at least 2 chars need to be entered into field
+        cy.get('input[name="name"]:nth-child(2)').should('have.attr', 'minlength', '2')
+
+        // radio button disabled
+        cy.get('#inlineRadio3').should('be.disabled')
+
+        // click shop button
+        cy.get(':nth-child(2) > .nav-link').click()
+
+        // at shop page add Blackberry and Nokia to cart
+        // see support/commands.js for selectProduct() and fixtures/example.json for data
+        this.data.productName.forEach(function(element) {
+            cy.selectProduct(element)
+        })
     })
 })
