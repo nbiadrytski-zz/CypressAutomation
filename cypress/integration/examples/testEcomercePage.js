@@ -1,3 +1,4 @@
+// node_modules/.bin/cypress run --record --key 0af473c5-849c-4ab0-aad9-f315e03a4482
 /// <reference types="Cypress" />
 import HomePage from '../../support/pageObjects/HomePage'
 import ProductsPage from '../../support/pageObjects/ProductsPage'

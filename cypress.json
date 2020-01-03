@@ -1,7 +1,8 @@
 {
-    "defaultCommandTimeout": 6000,
-    "chromeWebSecurity": false,
-    "env": {
-        "baseUrl": "https://rahulshettyacademy.com/angularpractice/"
-    }
+  "defaultCommandTimeout": 6000,
+  "chromeWebSecurity": false,
+  "env": {
+    "baseUrl": "https://rahulshettyacademy.com/angularpractice/"
+  },
+  "projectId": "zbdqhn"
 }
