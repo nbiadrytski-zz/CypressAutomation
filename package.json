@@ -4,7 +4,7 @@
   "description": "test runner: node_modules/.bin/cypress open",
   "main": "index.js",
   "scripts": {
-    "all": "node_modules/.bin/cypress run",
+    "all": "$(npm bin)/cypress run",
     "head_mode_all": "npm run all -- --headed",
     "chrome_one": "npm run all -- --browser chrome --spec 'cypress/integration/examples/testEcomercePage.js'",
     "record_dashboard": "npm run all -- --record --key 0af473c5-849c-4ab0-aad9-f315e03a4482 --reporter mochawesome",
